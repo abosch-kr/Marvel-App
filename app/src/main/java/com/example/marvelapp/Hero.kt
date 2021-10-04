@@ -1,9 +1,7 @@
 package com.example.marvelapp
 
-class Hero (name: String, alterEgo: String, var abilities: ArrayList<String>){
+class Hero (name: String, alterEgo: String, ability: String){
     var name: String = name
     var alterEgo: String = alterEgo
-    init {
-        abilities = ArrayList()
-    }
+    var ability: String = ability
 }
