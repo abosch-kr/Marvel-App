@@ -7,18 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class HerosRecViewAdapter() : RecyclerView.Adapter<HerosRecViewAdapter.ViewHolder>() {
-    private var heros: ArrayList<Hero>
-
-    init {
-        heros = ArrayList()
-    }
+    private var heros: ArrayList<Hero> = ArrayList()
 
     /**
      * Provides a reference to the type of views being used
      */
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtName: TextView = view.findViewById(R.id.txtName)
-
     }
 
     /**
