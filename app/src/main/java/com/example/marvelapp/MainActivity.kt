@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
         val heros: ArrayList<Hero> = ArrayList()
         val adapter: HerosRecViewAdapter = HerosRecViewAdapter()
 
-        heros.add(Hero("Iron Man", "Tony Stark", "Powered armor suit"))
-        heros.add(Hero("Captain America", "Steven Rogers", "Enhanced strength"))
-        heros.add(Hero("Hulk", "Bruce Banner", "Superhuman strength"))
+        heros.add(Hero("Iron Man", "Tony Stark","Long Island, New York", "Powered armor suit"))
+        heros.add(Hero("Captain America", "Steven Rogers","Brooklyn, New York", "Enhanced strength"))
+        heros.add(Hero("Hulk", "Bruce Banner", "Dayton, Ohio","Superhuman strength"))
 
         adapter.setHeros(heros)
         herosRecView.adapter = adapter
