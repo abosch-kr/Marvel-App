@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class HerosRecViewAdapter(private var heros: ArrayList<Hero>) : RecyclerView.Adapter<HerosRecViewAdapter.ViewHolder>() {
+class HerosRecViewAdapter() : RecyclerView.Adapter<HerosRecViewAdapter.ViewHolder>() {
+    private var heros: ArrayList<Hero>
 
     init {
         heros = ArrayList()
@@ -38,4 +39,8 @@ class HerosRecViewAdapter(private var heros: ArrayList<Hero>) : RecyclerView.Ada
     }
 
     override fun getItemCount() = heros.size
+
+    fun setHeros(updatedHeros: ArrayList<Hero>) {
+        heros = updatedHeros
+    }
 }
