@@ -6,19 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class HerosRecViewAdapter() : RecyclerView.Adapter<HerosRecViewAdapter.ViewHolder>() {
-    private var heros: ArrayList<Hero>
-
-    init {
-        heros = ArrayList()
-    }
+class HeroesRecViewAdapter() : RecyclerView.Adapter<HeroesRecViewAdapter.ViewHolder>() {
+    private var heroes = mutableListOf<Hero>()
 
     /**
      * Provides a reference to the type of views being used
      */
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtName: TextView = view.findViewById(R.id.txtName)
-
     }
 
     /**
@@ -35,12 +30,12 @@ class HerosRecViewAdapter() : RecyclerView.Adapter<HerosRecViewAdapter.ViewHolde
      * Replace the contents of a view
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.txtName.text = heros[position].name
+        holder.txtName.text = heroes[position].name
     }
 
-    override fun getItemCount() = heros.size
+    override fun getItemCount() = heroes.size
 
-    fun setHeros(updatedHeros: ArrayList<Hero>) {
-        heros = updatedHeros
+    fun setHeros(updatedHeroes: ArrayList<Hero>) {
+        heroes = updatedHeroes
     }
 }
