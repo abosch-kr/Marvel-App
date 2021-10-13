@@ -27,7 +27,7 @@ class RecyclerviewFragment : Fragment() {
 
         val heroes = createHeroes()
 
-        heroesAdapter.setHeros(heroes as ArrayList<Hero>)
+        heroesAdapter.setHeroes(heroes as ArrayList<Hero>)
         heroesRecView.apply {
             adapter = heroesAdapter
             layoutManager = LinearLayoutManager(context)
