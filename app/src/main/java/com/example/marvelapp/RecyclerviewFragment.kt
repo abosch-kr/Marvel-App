@@ -36,6 +36,7 @@ class RecyclerviewFragment : Fragment() {
 
     private fun createHeroes(): MutableList<Hero> {
         val heroes = mutableListOf<Hero>()
+
         heroes.add(Hero("Iron Man", "Tony Stark","Long Island, New York", "Powered armor suit"))
         heroes.add(Hero("Captain America", "Steven Rogers","Brooklyn, New York", "Enhanced strength"))
         heroes.add(Hero("Hulk", "Bruce Banner", "Dayton, Ohio","Superhuman strength"))
