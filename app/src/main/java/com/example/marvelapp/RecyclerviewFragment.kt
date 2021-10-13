@@ -14,16 +14,28 @@ import androidx.recyclerview.widget.RecyclerView
  */
 class RecyclerviewFragment : Fragment() {
     private lateinit var heroesRecView: RecyclerView
-    private lateinit var layoutManager: LinearLayoutManager
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val itemView = inflater.inflate(R.layout.fragment_recyclerview, container, false)
-        val heroesAdapter = HeroesRecViewAdapter()
-        layoutManager = LinearLayoutManager(context)
-        heroesRecView = itemView.findViewById(R.id.heroes_rec_view)
-        val heroes = mutableListOf<Hero>()
+        return inflater.inflate(R.layout.fragment_recyclerview, container, false)
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val heroesAdapter = HeroesRecViewAdapter()
+        heroesRecView = view.findViewById(R.id.heroes_rec_view)
+
+        val heroes = createHeroes()
+
+        heroesAdapter.setHeros(heroes as ArrayList<Hero>)
+        heroesRecView.apply {
+            adapter = heroesAdapter
+            layoutManager = LinearLayoutManager(context)
+        }
+    }
+
+    private fun createHeroes(): MutableList<Hero> {
+        val heroes = mutableListOf<Hero>()
         heroes.add(Hero("Iron Man", "Tony Stark","Long Island, New York", "Powered armor suit"))
         heroes.add(Hero("Captain America", "Steven Rogers","Brooklyn, New York", "Enhanced strength"))
         heroes.add(Hero("Hulk", "Bruce Banner", "Dayton, Ohio","Superhuman strength"))
@@ -41,13 +53,6 @@ class RecyclerviewFragment : Fragment() {
         heroes.add(Hero("John", "Clinton Barton", "Waverly, Iowa","Marksman"))
         heroes.add(Hero("Mike", "Thor Odinson", "Asgard","Hammer"))
 
-        heroesAdapter.setHeros(heroes as ArrayList<Hero>)
-        heroesRecView.apply {
-            adapter = heroesAdapter
-            layoutManager = LinearLayoutManager(context)
-        }
-        heroesRecView = itemView.findViewById(R.id.heroes_rec_view)
-
-        return itemView
+        return heroes
     }
 }
