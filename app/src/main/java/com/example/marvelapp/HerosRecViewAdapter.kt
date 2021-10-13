@@ -15,6 +15,9 @@ class HeroesRecViewAdapter() : RecyclerView.Adapter<HeroesRecViewAdapter.ViewHol
      */
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
         val txtName: TextView = view.findViewById(R.id.txtName)
+        init {
+            view.setOnClickListener(this)
+        }
 
         override fun onClick(view: View?) {
             val activity = view?.context
