@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Entering onCreate")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val recyclerviewFragment = RecyclerviewFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame_layout, recyclerviewFragment)
