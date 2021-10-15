@@ -11,13 +11,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerviewFragment = RecyclerviewFragment()
+        val recyclerviewFragment = RecyclerviewFragment { onHeroClick() }
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame_layout, recyclerviewFragment)
         fragmentTransaction.commit()
 
         Log.d(TAG, "Exiting onCreate")
     }
+
+    private fun onHeroClick() {
+        val heroDetailsFragment = HeroDetailsFragment()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frame_layout, heroDetailsFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
     companion object {
         const val TAG = "MainActivity"
     }
