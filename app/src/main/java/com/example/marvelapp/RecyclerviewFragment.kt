@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -12,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
  * A simple [Fragment] subclass.
  * create an instance of this fragment.
  */
-class RecyclerviewFragment : Fragment() {
+class RecyclerviewFragment(private var listItemClickListener: () -> Unit) : Fragment() {
     private lateinit var heroesRecView: RecyclerView
 
     override fun onCreateView(
@@ -22,7 +23,7 @@ class RecyclerviewFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val heroesAdapter = HeroesRecViewAdapter()
+        val heroesAdapter = HeroesRecViewAdapter(listItemClickListener)
         heroesRecView = view.findViewById(R.id.heroes_rec_view)
 
         val heroes = createHeroes()
