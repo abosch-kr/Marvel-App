@@ -7,42 +7,33 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 
-class HeroesRecViewAdapter() : RecyclerView.Adapter<HeroesRecViewAdapter.ViewHolder>() {
+class HeroesRecViewAdapter(private var listItemClickListener: () -> Unit) : RecyclerView.Adapter<HeroesRecViewAdapter.HeroesViewHolder>() {
     private var heroes = mutableListOf<Hero>()
 
     /**
      * Provides a reference to the type of views being used
      */
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
+    inner class HeroesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtName: TextView = view.findViewById(R.id.txtName)
         init {
-            view.setOnClickListener(this)
-        }
-
-        override fun onClick(view: View?) {
-            val activity = view?.context
-            val heroDetailsFragment = HeroDetailsFragment()
-            val fragmentTransaction = (activity as FragmentActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frame_layout, heroDetailsFragment)
-                .addToBackStack(null)
-                .commit()
+            view.setOnClickListener { listItemClickListener() }
         }
     }
 
     /**
      * Create new views
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroesViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.heroes_list_item, parent, false)
 
-        return ViewHolder(view)
+        return HeroesViewHolder(view)
     }
 
     /**
      * Replace the contents of a view
      */
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HeroesViewHolder, position: Int) {
         holder.txtName.text = heroes[position].name
     }
 
