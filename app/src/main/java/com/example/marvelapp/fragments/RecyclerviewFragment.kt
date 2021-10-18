@@ -64,13 +64,13 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
         heroes.add(Hero("Wolverine", "James Howlett", "Canada","Claws"))
         heroes.add(Hero("Vision", "Tom Smith", "Brooklyn, New York","Superhuman intelligence"))
         heroes.add(Hero("Doctor Strange", "Stephen Vincent Strange", "New York","Mastery of magic"))
-        heroes.add(Hero("Hawkeye", "Clinton Barton", "Waverly, Iowa","Marksman"))
+        heroes.add(Hero("Hawkeye", "Clint Barton", "Waverly, Iowa","Marksman"))
         heroes.add(Hero("Thor", "Thor Odinson", "Asgard","Hammer"))
-        heroes.add(Hero("Anthony", "James Howlett", "Canada","Claws"))
-        heroes.add(Hero("Jared", "Tom Smith", "Brooklyn, New York","Superhuman intelligence"))
-        heroes.add(Hero("Jim", "Stephen Vincent Strange", "New York","Mastery of magic"))
-        heroes.add(Hero("John", "Clinton Barton", "Waverly, Iowa","Marksman"))
-        heroes.add(Hero("Mike", "Thor Odinson", "Asgard","Hammer"))
+        heroes.add(Hero("Captain Marvel", "Carol Danvers", "New York","Cosmic energy force powers"))
+        heroes.add(Hero("Spider-Man", "Peter Parker", "Brooklyn, New York","Spider senses"))
+        heroes.add(Hero("War Machine", "James Rhodes", "New York","Powered armor suit"))
+        heroes.add(Hero("Black Widow", "Natasha Romanoff", "Russia","Marksman"))
+        heroes.add(Hero("Thanos", "Thanos", "Titan","Infinity stones"))
 
         return heroes
     }
