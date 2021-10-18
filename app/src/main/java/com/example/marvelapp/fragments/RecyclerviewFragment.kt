@@ -1,13 +1,15 @@
-package com.example.marvelapp
+package com.example.marvelapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.marvelapp.HeroesRecViewAdapter
+import com.example.marvelapp.R
+import com.example.marvelapp.models.Hero
 
 /**
  * A simple [Fragment] subclass.

@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.marvelapp.models.Hero
 
 class HeroesRecViewAdapter(private var listItemClickListener: () -> Unit) : RecyclerView.Adapter<HeroesRecViewAdapter.HeroesViewHolder>() {
     private var heroes = mutableListOf<Hero>()

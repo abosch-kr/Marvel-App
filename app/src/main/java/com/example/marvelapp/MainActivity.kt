@@ -3,6 +3,8 @@ package com.example.marvelapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.marvelapp.fragments.HeroDetailsFragment
+import com.example.marvelapp.fragments.RecyclerviewFragment
 
 class MainActivity : AppCompatActivity() {
 
