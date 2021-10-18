@@ -7,16 +7,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapp.models.Hero
 
-class HeroesRecViewAdapter(private var listItemClickListener: () -> Unit) : RecyclerView.Adapter<HeroesRecViewAdapter.HeroesViewHolder>() {
+class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerView.Adapter<HeroesRecViewAdapter.HeroesViewHolder>() {
     private var heroes = mutableListOf<Hero>()
+    private val mOnHeroClickListener = onHeroClickListener
 
     /**
      * Provides a reference to the type of views being used
      */
-    inner class HeroesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class HeroesViewHolder(view: View, onHeroClickListener: OnHeroClickListener) : RecyclerView.ViewHolder(view) {
         val txtName: TextView = view.findViewById(R.id.txtName)
+        private val localOnHeroClickListener = onHeroClickListener
         init {
-            view.setOnClickListener { listItemClickListener() }
+            view.setOnClickListener { localOnHeroClickListener.onHeroClick(adapterPosition) }
         }
     }
 
@@ -27,7 +29,7 @@ class HeroesRecViewAdapter(private var listItemClickListener: () -> Unit) : Recy
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.heroes_list_item, parent, false)
 
-        return HeroesViewHolder(view)
+        return HeroesViewHolder(view, mOnHeroClickListener)
     }
 
     /**
@@ -41,5 +43,9 @@ class HeroesRecViewAdapter(private var listItemClickListener: () -> Unit) : Recy
 
     fun setHeroes(updatedHeroes: ArrayList<Hero>) {
         heroes = updatedHeroes
+    }
+
+    interface OnHeroClickListener {
+        fun onHeroClick(position: Int)
     }
 }
