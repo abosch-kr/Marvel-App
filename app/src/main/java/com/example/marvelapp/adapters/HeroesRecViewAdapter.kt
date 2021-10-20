@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapp.R
 import com.example.marvelapp.models.Hero
+import android.util.Log
 
 class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerView.Adapter<HeroesRecViewAdapter.HeroesViewHolder>() {
     private var heroes = mutableListOf<Hero>()
@@ -38,12 +39,14 @@ class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerV
      */
     override fun onBindViewHolder(holder: HeroesViewHolder, position: Int) {
         holder.txtName.text = heroes[position].name
+        Log.d(TAG, holder.txtName.text as String)
     }
 
     override fun getItemCount() = heroes.size
 
     fun setHeroes(updatedHeroes: ArrayList<Hero>) {
         heroes = updatedHeroes
+        Log.d(TAG, "heroes list updated")
     }
 
     interface OnHeroClickListener {
