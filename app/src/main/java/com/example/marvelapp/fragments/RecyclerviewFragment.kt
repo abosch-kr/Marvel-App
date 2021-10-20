@@ -68,7 +68,7 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
 
     /**
      * @param pBundle
-     * Instantiates a HeroDetailsFragment and sets its arguments the pBundle, sets the fragmentTransaction
+     * Instantiates a HeroDetailsFragment and sets its arguments to pBundle, sets the fragmentTransaction
      * to replace main_frame_layout with the heroDetailsFragment
      */
     private fun createTransaction(pBundle: Bundle) {
