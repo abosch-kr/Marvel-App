@@ -11,6 +11,10 @@ import com.example.marvelapp.R
 import com.example.marvelapp.models.Hero
 
 class HeroDetailsFragment : Fragment() {
+    private lateinit var heroName: TextView
+    private lateinit var heroAlterEgo: TextView
+    private lateinit var heroOrigin: TextView
+    private lateinit var heroAbility: TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -27,15 +31,22 @@ class HeroDetailsFragment : Fragment() {
         Log.d(TAG, hero.origin)
         Log.d(TAG, hero.ability)
 
-        val heroName: TextView = view.findViewById(R.id.txt_hero_name)
-        val heroAlterEgo: TextView = view.findViewById(R.id.txt_hero_alter_ego)
-        val heroOrigin: TextView = view.findViewById(R.id.txt_hero_origin)
-        val heroAbility: TextView = view.findViewById(R.id.txt_hero_ability)
+        findViews(view)
+        setDetails(hero)
+    }
 
-        heroName.text = hero.name
-        heroAlterEgo.text = hero.alterEgo
-        heroOrigin.text = hero.origin
-        heroAbility.text = hero.ability
+    private fun findViews(pView: View) {
+        heroName = pView.findViewById(R.id.txt_hero_name)
+        heroAlterEgo = pView.findViewById(R.id.txt_hero_alter_ego)
+        heroOrigin = pView.findViewById(R.id.txt_hero_origin)
+        heroAbility = pView.findViewById(R.id.txt_hero_ability)
+    }
+
+    private fun setDetails(pHero: Hero) {
+        heroName.text = pHero.name
+        heroAlterEgo.text = pHero.alterEgo
+        heroOrigin.text = pHero.origin
+        heroAbility.text = pHero.ability
     }
 
     companion object {
