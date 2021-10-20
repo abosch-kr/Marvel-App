@@ -11,7 +11,7 @@ import com.example.marvelapp.R
 import com.example.marvelapp.models.Hero
 
 /**
- * Fragment object that will display the details of a specific Hero inside appropriate Views
+ * [Fragment] object that will display the details of a specific Hero inside appropriate Views
  */
 class HeroDetailsFragment : Fragment() {
     private lateinit var heroName: TextView
