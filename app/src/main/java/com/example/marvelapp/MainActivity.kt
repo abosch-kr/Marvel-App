@@ -14,6 +14,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        createTransaction()
+    }
+
+    /**
+     * Instantiates a RecyclerviewFragment, sets the fragmentTransaction to replace main_frame_layout
+     * with the recyclerviewFragment
+     */
+    private fun createTransaction() {
         val recyclerviewFragment = RecyclerviewFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.main_frame_layout, recyclerviewFragment)
