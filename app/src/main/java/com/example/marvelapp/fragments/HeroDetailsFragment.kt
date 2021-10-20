@@ -23,7 +23,7 @@ class HeroDetailsFragment : Fragment() {
      * @param inflater
      * @param container
      * @param savedInstanceState
-     * Inflate the layout for this fragment
+     * Inflates the layout for this fragment
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
