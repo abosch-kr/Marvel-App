@@ -19,7 +19,6 @@ import com.example.marvelapp.models.Hero
 class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListener {
     private lateinit var heroesRecView: RecyclerView
     private lateinit var heroesAdapter: HeroesRecViewAdapter
-    private lateinit var heroes: List<Hero>
 
     /**
      * @param inflater
@@ -44,9 +43,7 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
         heroesAdapter = HeroesRecViewAdapter(this)
         heroesRecView = view.findViewById(R.id.heroes_rec_view)
 
-        heroes = createHeroes()
-
-        heroesAdapter.setHeroes(heroes as ArrayList<Hero>)
+        heroesAdapter.setHeroes(createHeroes() as ArrayList<Hero>)
         heroesRecView.apply {
             adapter = heroesAdapter
             layoutManager = LinearLayoutManager(context)
@@ -55,26 +52,23 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
     }
 
     /**
-     * @param position
+     * @param pHero
      * Retrieves data from the Bundle and creates a fragment transaction
      */
-    override fun onHeroClick(position: Int) {
-        val bundle = Bundle()
-        bundle.putParcelable("hero", heroes[position])
+    override fun onHeroClick(pHero: Hero) {
         Log.d(TAG, "bundle object successfully retrieved data")
 
-        createTransaction(bundle)
+        createTransaction(pHero)
     }
 
     /**
-     * @param pBundle
+     * @param pHero
      * Instantiates a HeroDetailsFragment and sets its arguments to pBundle, sets the fragmentTransaction
      * to replace main_frame_layout with the heroDetailsFragment
      */
-    private fun createTransaction(pBundle: Bundle) {
+    private fun createTransaction(pHero: Hero) {
         val activity = view?.context
-        val heroDetailsFragment = HeroDetailsFragment()
-        heroDetailsFragment.arguments = pBundle
+        val heroDetailsFragment = HeroDetailsFragment.newInstance(pHero)
         val fragmentTransaction = (activity as FragmentActivity).supportFragmentManager.beginTransaction()
             .replace(R.id.main_frame_layout, heroDetailsFragment)
             .addToBackStack(null)
