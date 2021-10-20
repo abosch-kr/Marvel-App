@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.marvelapp.HeroesRecViewAdapter
+import com.example.marvelapp.adapters.HeroesRecViewAdapter
 import com.example.marvelapp.R
 import com.example.marvelapp.models.Hero
 
@@ -43,9 +43,13 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
         val bundle = Bundle()
         bundle.putParcelable("hero", heroes[position])
 
+        createTransaction(bundle)
+    }
+
+    private fun createTransaction(pBundle: Bundle) {
         val activity = view?.context
         val heroDetailsFragment = HeroDetailsFragment()
-        heroDetailsFragment.arguments = bundle
+        heroDetailsFragment.arguments = pBundle
         val fragmentTransaction = (activity as FragmentActivity).supportFragmentManager.beginTransaction()
             .replace(R.id.main_frame_layout, heroDetailsFragment)
             .addToBackStack(null)
