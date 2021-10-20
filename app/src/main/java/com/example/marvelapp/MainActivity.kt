@@ -6,6 +6,10 @@ import com.example.marvelapp.fragments.RecyclerviewFragment
 
 class MainActivity : AppCompatActivity() {
 
+    /**
+     * @param savedInstanceState
+     * Sets the main_frame_layout with a RecyclerView Fragment
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
