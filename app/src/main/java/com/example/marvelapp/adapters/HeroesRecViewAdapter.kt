@@ -14,7 +14,7 @@ import android.util.Log
  * RecyclerView Adapter class that will translate the Hero data into Views
  */
 class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerView.Adapter<HeroesRecViewAdapter.HeroesViewHolder>() {
-    private var heroes = mutableListOf<Hero>()
+    private val heroes = mutableListOf<Hero>()
     private val mOnHeroClickListener = onHeroClickListener
 
     /**
@@ -26,7 +26,7 @@ class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerV
         val txtName: TextView = view.findViewById(R.id.txtName)
         private val localOnHeroClickListener = onHeroClickListener
         init {
-            view.setOnClickListener { localOnHeroClickListener.onHeroClick(adapterPosition) }
+            view.setOnClickListener { localOnHeroClickListener.onHeroClick(heroes[bindingAdapterPosition]) }
         }
     }
 
@@ -62,12 +62,14 @@ class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerV
      * Updates the mutable list of heroes
      */
     fun setHeroes(updatedHeroes: ArrayList<Hero>) {
-        heroes = updatedHeroes
+        heroes.clear()
+        heroes.addAll(updatedHeroes)
+        notifyDataSetChanged()
         Log.d(TAG, "heroes list updated")
     }
 
     interface OnHeroClickListener {
-        fun onHeroClick(position: Int)
+        fun onHeroClick(pHero: Hero)
     }
 
     companion object {
