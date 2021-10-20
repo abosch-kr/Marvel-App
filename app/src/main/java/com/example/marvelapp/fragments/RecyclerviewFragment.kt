@@ -74,4 +74,8 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
 
         return heroes
     }
+
+    companion object {
+        const val TAG = "RecyclerviewFragment"
+    }
 }

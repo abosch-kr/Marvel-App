@@ -16,4 +16,8 @@ data class Hero (val name: String, val alterEgo: String, val origin: String, val
         dest?.writeString(origin)
         dest?.writeString(ability)
     }
+
+    companion object {
+        const val TAG = "Hero"
+    }
 }

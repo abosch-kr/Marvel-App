@@ -48,4 +48,8 @@ class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerV
     interface OnHeroClickListener {
         fun onHeroClick(position: Int)
     }
+
+    companion object {
+        const val TAG = "HeroesRecViewAdapter"
+    }
 }
