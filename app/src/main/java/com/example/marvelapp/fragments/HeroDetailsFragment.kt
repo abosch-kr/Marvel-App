@@ -18,10 +18,13 @@ class HeroDetailsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment.
         return inflater.inflate(R.layout.fragment_hero_details, container, false)
     }
 
+    /**
+     * Retrieves a Hero object from the Bundle and sets the Heroes' details
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         // Get the data being passed in from the RecyclerViewFragment Bundle.
         val hero: Hero? = arguments?.getParcelable("hero")
@@ -35,6 +38,9 @@ class HeroDetailsFragment : Fragment() {
         setDetails(hero)
     }
 
+    /**
+     * Finds the appropriate Views for each Hero member variable
+     */
     private fun findViews(pView: View) {
         heroName = pView.findViewById(R.id.txt_hero_name)
         heroAlterEgo = pView.findViewById(R.id.txt_hero_alter_ego)
@@ -42,6 +48,9 @@ class HeroDetailsFragment : Fragment() {
         heroAbility = pView.findViewById(R.id.txt_hero_ability)
     }
 
+    /**
+     * Sets the text attribute of each Hero detail
+     */
     private fun setDetails(pHero: Hero) {
         heroName.text = pHero.name
         heroAlterEgo.text = pHero.alterEgo
