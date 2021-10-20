@@ -19,13 +19,21 @@ class HeroDetailsFragment : Fragment() {
     private lateinit var heroOrigin: TextView
     private lateinit var heroAbility: TextView
 
+    /**
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * Inflate the layout for this fragment
+     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment.
+
         return inflater.inflate(R.layout.fragment_hero_details, container, false)
     }
 
     /**
+     * @param view
+     * @param savedInstanceState
      * Retrieves a Hero object from the Bundle and sets the Heroes' details
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,6 +50,7 @@ class HeroDetailsFragment : Fragment() {
     }
 
     /**
+     * @param pView
      * Finds the appropriate Views for each Hero member variable
      */
     private fun findViews(pView: View) {
@@ -53,6 +62,7 @@ class HeroDetailsFragment : Fragment() {
     }
 
     /**
+     * @param pHero
      * Sets the text attribute of each Hero detail
      */
     private fun setDetails(pHero: Hero) {
