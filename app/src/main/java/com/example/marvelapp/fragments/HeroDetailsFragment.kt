@@ -37,15 +37,17 @@ class HeroDetailsFragment : Fragment() {
      * Retrieves a Hero object from the Bundle and sets the Heroes' details
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val hero: Hero? = arguments?.getParcelable("hero")
+        val hero: Hero? = arguments?.getParcelable(BUNDLE_KEY)
 
-        Log.d(TAG, hero!!.name)
-        Log.d(TAG, hero.alterEgo)
-        Log.d(TAG, hero.origin)
-        Log.d(TAG, hero.ability)
+        if (hero != null) {
+            Log.d(TAG, hero.name)
+            Log.d(TAG, hero.alterEgo)
+            Log.d(TAG, hero.origin)
+            Log.d(TAG, hero.ability)
 
-        findViews(view)
-        setDetails(hero)
+            findViews(view)
+            setDetails(hero)
+        }
     }
 
     /**
@@ -74,5 +76,11 @@ class HeroDetailsFragment : Fragment() {
 
     companion object {
         const val TAG = "HeroDetailsFragment"
+        const val BUNDLE_KEY = "hero"
+        fun newInstance(pHero: Hero) = HeroDetailsFragment().apply {
+                arguments = Bundle().also { bundle->
+                    bundle.putParcelable(BUNDLE_KEY, pHero)
+                }
+            }
     }
 }
