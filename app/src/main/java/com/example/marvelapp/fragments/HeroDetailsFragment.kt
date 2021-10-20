@@ -37,7 +37,6 @@ class HeroDetailsFragment : Fragment() {
      * Retrieves a Hero object from the Bundle and sets the Heroes' details
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // Get the data being passed in from the RecyclerViewFragment Bundle.
         val hero: Hero? = arguments?.getParcelable("hero")
 
         Log.d(TAG, hero!!.name)
