@@ -1,6 +1,7 @@
 package com.example.marvelapp.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -50,6 +51,7 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
             adapter = heroesAdapter
             layoutManager = LinearLayoutManager(context)
         }
+        Log.d(TAG, "heroes recycler view attributes were set")
     }
 
     /**
@@ -59,6 +61,7 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
     override fun onHeroClick(position: Int) {
         val bundle = Bundle()
         bundle.putParcelable("hero", heroes[position])
+        Log.d(TAG, "bundle object successfully retrieved data")
 
         createTransaction(bundle)
     }
@@ -76,6 +79,7 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
             .replace(R.id.main_frame_layout, heroDetailsFragment)
             .addToBackStack(null)
             .commit()
+        Log.d(TAG, "fragment transaction complete")
     }
 
     /**
@@ -102,6 +106,7 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
         heroes.add(Hero("Black Widow", "Natasha Romanoff", "Russia","Marksman"))
         heroes.add(Hero("Thanos", "Thanos", "Titan","Infinity stones"))
 
+        Log.d(TAG, "heroes list is set")
         return heroes
     }
 
