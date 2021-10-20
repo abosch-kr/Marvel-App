@@ -46,6 +46,7 @@ class HeroDetailsFragment : Fragment() {
         heroAlterEgo = pView.findViewById(R.id.txt_hero_alter_ego)
         heroOrigin = pView.findViewById(R.id.txt_hero_origin)
         heroAbility = pView.findViewById(R.id.txt_hero_ability)
+        Log.d(TAG, "Views have been found")
     }
 
     /**
@@ -56,6 +57,7 @@ class HeroDetailsFragment : Fragment() {
         heroAlterEgo.text = pHero.alterEgo
         heroOrigin.text = pHero.origin
         heroAbility.text = pHero.ability
+        Log.d(TAG, "Hero details are set")
     }
 
     companion object {
