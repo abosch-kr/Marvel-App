@@ -13,21 +13,34 @@ import com.example.marvelapp.R
 import com.example.marvelapp.models.Hero
 
 /**
- * A simple [Fragment] subclass.
- * create an instance of this fragment.
+ * [Fragment] object that will display a RecyclerView
  */
 class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListener {
     private lateinit var heroesRecView: RecyclerView
+    private lateinit var heroesAdapter: HeroesRecViewAdapter
     private lateinit var heroes: List<Hero>
 
+    /**
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * Inflates the layout for this fragment
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_recyclerview, container, false)
     }
 
+    /**
+     * @param view
+     * @param savedInstanceState
+     * Instantiates the heroesAdapter, creates heroesRecView and applies adapter and layoutManager, and
+     * creates a list of Heroes
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val heroesAdapter = HeroesRecViewAdapter(this)
+        heroesAdapter = HeroesRecViewAdapter(this)
         heroesRecView = view.findViewById(R.id.heroes_rec_view)
 
         heroes = createHeroes()
@@ -39,6 +52,10 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
         }
     }
 
+    /**
+     * @param position
+     * Retrieves data from the Bundle and creates a fragment transaction
+     */
     override fun onHeroClick(position: Int) {
         val bundle = Bundle()
         bundle.putParcelable("hero", heroes[position])
@@ -46,6 +63,11 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
         createTransaction(bundle)
     }
 
+    /**
+     * @param pBundle
+     * Instantiates a HeroDetailsFragment and sets its arguments the pBundle, sets the fragmentTransaction
+     * to replace main_frame_layout with the heroDetailsFragment
+     */
     private fun createTransaction(pBundle: Bundle) {
         val activity = view?.context
         val heroDetailsFragment = HeroDetailsFragment()
@@ -56,6 +78,10 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
             .commit()
     }
 
+    /**
+     * @return a mutable list of Hero objects
+     * Creates a mutable list of Hero objects, adds Heroes to the list, and returns the list
+     */
     private fun createHeroes(): MutableList<Hero> {
         val heroes = mutableListOf<Hero>()
 
