@@ -1,10 +1,11 @@
-package com.example.marvelapp
+package com.example.marvelapp.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.marvelapp.R
 import com.example.marvelapp.models.Hero
 
 class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerView.Adapter<HeroesRecViewAdapter.HeroesViewHolder>() {
