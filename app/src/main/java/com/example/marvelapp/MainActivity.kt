@@ -2,8 +2,7 @@ package com.example.marvelapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.marvelapp.fragments.RecyclerviewFragment
-import com.example.marvelapp.fragments.RecyclerviewFragment.Companion.newInstance
+import com.example.marvelapp.fragment.RecyclerviewFragment.Companion.newInstance
 
 class MainActivity : AppCompatActivity() {
 
