@@ -1,4 +1,4 @@
-package com.example.marvelapp.adapters
+package com.example.marvelapp.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.marvelapp.R
-import com.example.marvelapp.models.Hero
+import com.example.marvelapp.model.Hero
 import android.util.Log
 
 /**

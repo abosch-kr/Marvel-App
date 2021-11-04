@@ -1,4 +1,4 @@
-package com.example.marvelapp.fragments
+package com.example.marvelapp.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.marvelapp.R
-import com.example.marvelapp.models.Hero
+import com.example.marvelapp.model.Hero
 
 /**
  * [Fragment] object that will display the details of a specific Hero inside appropriate Views

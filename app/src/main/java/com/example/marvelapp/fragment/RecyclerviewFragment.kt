@@ -1,4 +1,4 @@
-package com.example.marvelapp.fragments
+package com.example.marvelapp.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.marvelapp.adapters.HeroesRecViewAdapter
+import com.example.marvelapp.adapter.HeroesRecViewAdapter
 import com.example.marvelapp.R
-import com.example.marvelapp.models.Hero
+import com.example.marvelapp.model.Hero
 
 /**
  * [Fragment] object that will display a RecyclerView
