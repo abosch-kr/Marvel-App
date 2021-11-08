@@ -23,7 +23,7 @@ class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerV
      * Provides a reference to the type of views being used
      */
     inner class HeroesViewHolder(view: View, onHeroClickListener: OnHeroClickListener) : RecyclerView.ViewHolder(view) {
-        val txtName: TextView = view.findViewById(R.id.txtName)
+        val txtName: TextView = view.findViewById(R.id.character_name)
         private val localOnHeroClickListener = onHeroClickListener
         init {
             view.setOnClickListener { localOnHeroClickListener.onHeroClick(heroes[bindingAdapterPosition]) }
