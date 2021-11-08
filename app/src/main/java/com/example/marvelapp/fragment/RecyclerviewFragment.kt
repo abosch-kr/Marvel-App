@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.marvelapp.MainViewModelFactory
 import com.example.marvelapp.adapter.HeroesRecViewAdapter
 import com.example.marvelapp.R
@@ -48,7 +49,7 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
      * creates a list of Heroes
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        charactersAdapter = CharactersAdapter(this)
+        charactersAdapter = CharactersAdapter(Glide.with(this), this)
         charactersRecView = view.findViewById(R.id.heroes_rec_view)
 
         val repository = Repository()
