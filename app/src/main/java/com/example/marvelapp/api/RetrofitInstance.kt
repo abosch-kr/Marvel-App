@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitInstance {
-    private val moshiBuilder: Moshi = Moshi.Builder() .add(KotlinJsonAdapterFactory()).build()
+    private val moshiBuilder: Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
     private val retrofit by lazy {
         Retrofit.Builder()
