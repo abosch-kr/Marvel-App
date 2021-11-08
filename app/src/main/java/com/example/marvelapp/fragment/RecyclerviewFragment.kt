@@ -6,19 +6,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.marvelapp.MainViewModelFactory
 import com.example.marvelapp.adapter.HeroesRecViewAdapter
 import com.example.marvelapp.R
+import com.example.marvelapp.SharedViewModel
+import com.example.marvelapp.adapter.CharactersAdapter
+import com.example.marvelapp.model.Character
 import com.example.marvelapp.model.Hero
+import com.example.marvelapp.repository.Repository
 
 /**
  * [Fragment] object that will display a RecyclerView
  */
-class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListener {
-    private lateinit var heroesRecView: RecyclerView
-    private lateinit var heroesAdapter: HeroesRecViewAdapter
+class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListener, CharactersAdapter.onCharacterClickListener {
+    private lateinit var charactersRecView: RecyclerView
+    private lateinit var charactersAdapter: CharactersAdapter
+    private lateinit var viewModel: SharedViewModel
 
     /**
      * @param inflater
@@ -40,12 +48,19 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
      * creates a list of Heroes
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        heroesAdapter = HeroesRecViewAdapter(this)
-        heroesRecView = view.findViewById(R.id.heroes_rec_view)
+        charactersAdapter = CharactersAdapter(this)
+        charactersRecView = view.findViewById(R.id.heroes_rec_view)
 
-        heroesAdapter.setHeroes(createHeroes() as ArrayList<Hero>)
-        heroesRecView.apply {
-            adapter = heroesAdapter
+        val repository = Repository()
+        val viewModelFactory = MainViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(SharedViewModel::class.java)
+        viewModel.getCharacters()
+        viewModel.mResponse.observe(viewLifecycleOwner, { response ->
+            charactersAdapter.setCharacters(response.results as ArrayList<Character>)
+        })
+
+        charactersRecView.apply {
+            adapter = charactersAdapter
             layoutManager = LinearLayoutManager(context)
         }
         Log.d(TAG, "heroes recycler view attributes were set")
@@ -59,6 +74,10 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
         Log.d(TAG, "bundle object successfully retrieved data")
 
         createTransaction(pHero)
+    }
+
+    override fun onCharacterClick(character: Character) {
+        Toast.makeText(context, "Details coming soon...", Toast.LENGTH_SHORT).show()
     }
 
     /**
