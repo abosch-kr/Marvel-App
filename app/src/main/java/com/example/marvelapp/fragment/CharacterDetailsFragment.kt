@@ -1,6 +1,7 @@
 package com.example.marvelapp.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,6 @@ class CharacterDetailsFragment(private val character: Character) : Fragment() {
     private lateinit var species: TextView
     private lateinit var status: TextView
     private lateinit var type: TextView
-    private lateinit var url: TextView
     private lateinit var image: ImageView
 
     override fun onCreateView(
@@ -39,12 +39,20 @@ class CharacterDetailsFragment(private val character: Character) : Fragment() {
     }
 
     private fun setDetails() {
+        Glide.with(this)
+            .load(character.image)
+            .into(image)
+
         name.text = character.name
-        origin.text = character.origin.toString()
+        Log.i(TAG, "Name: ${character.name}")
+        origin.text = character.origin.name
+        Log.i(TAG, "Origin: ${character.origin.name}")
         species.text = character.species
+        Log.i(TAG, "Species: ${character.species}")
         status.text = character.status
+        Log.i(TAG, "Status: ${character.status}")
         type.text = character.type
-        url.text = character.url
+        Log.i(TAG, "Type: ${character.type}")
     }
 
     private fun findViews(view: View) {
@@ -53,8 +61,7 @@ class CharacterDetailsFragment(private val character: Character) : Fragment() {
         species = view.findViewById(R.id.txt_character_species)
         status = view.findViewById(R.id.txt_character_status)
         type = view.findViewById(R.id.txt_character_type)
-        url = view.findViewById(R.id.txt_character_url)
-        image = view.findViewById(R.id.img_character)
+        image = view.findViewById(R.id.img_character_header)
     }
 
     companion object {
@@ -64,5 +71,6 @@ class CharacterDetailsFragment(private val character: Character) : Fragment() {
          */
         @JvmStatic
         fun newInstance(characters: Character) = CharacterDetailsFragment(characters)
+        const val TAG = "CharacterDetails"
     }
 }
