@@ -24,7 +24,7 @@ import com.example.marvelapp.repository.Repository
 /**
  * [Fragment] object that will display a RecyclerView
  */
-class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListener, CharactersAdapter.onCharacterClickListener {
+class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListener, CharactersAdapter.OnCharacterClickListener {
     private lateinit var charactersRecView: RecyclerView
     private lateinit var charactersAdapter: CharactersAdapter
     private lateinit var viewModel: SharedViewModel
