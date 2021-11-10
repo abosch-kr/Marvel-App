@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Rick and Morty App</string>
+    <string name="origin"><i><b>Origin</b></i></string>
+    <string name="species"><i><b>Species</b></i></string>
+    <string name="status"><i><b>Status</b></i></string>
+    <string name="type"><i><b>Type</b></i></string>
 </resources>
