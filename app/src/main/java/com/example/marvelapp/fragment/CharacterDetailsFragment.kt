@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.marvelapp.R
 import com.example.marvelapp.model.Character
 
@@ -41,6 +42,7 @@ class CharacterDetailsFragment(private val character: Character) : Fragment() {
     private fun setDetails() {
         Glide.with(this)
             .load(character.image)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(image)
 
         name.text = character.name
