@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -64,7 +63,6 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
             adapter = charactersAdapter
             layoutManager = LinearLayoutManager(context)
         }
-        Log.d(TAG, "heroes recycler view attributes were set")
     }
 
     /**
@@ -78,7 +76,17 @@ class RecyclerviewFragment : Fragment(), HeroesRecViewAdapter.OnHeroClickListene
     }
 
     override fun onCharacterClick(character: Character) {
-        Toast.makeText(context, "Details coming soon...", Toast.LENGTH_SHORT).show()
+        createFragmentTransaction(character)
+    }
+
+    private fun createFragmentTransaction(character: Character) {
+        val activity = view?.context
+        val characterDetailsFragment = CharacterDetailsFragment.newInstance(character)
+        val fragmentTransaction = (activity as FragmentActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frame_layout, characterDetailsFragment)
+            .addToBackStack(null)
+            .commit()
+        Log.d(TAG, "fragment transaction complete")
     }
 
     /**
