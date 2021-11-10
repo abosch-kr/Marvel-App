@@ -11,14 +11,12 @@
     tools:context=".fragment.CharacterDetailsFragment">
 
     <ImageView
-        android:id="@+id/img_character"
+        android:id="@+id/img_character_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/txt_character_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/txt_character_name"
@@ -28,8 +26,18 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/img_character"
+        app:layout_constraintTop_toBottomOf="@+id/img_character_header"
         tools:text="placeholder_name" />
+
+    <TextView
+        android:id="@+id/txt_origin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/origin"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_character_name" />
 
     <TextView
         android:id="@+id/txt_character_origin"
@@ -38,8 +46,18 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_character_name"
+        app:layout_constraintTop_toBottomOf="@+id/txt_origin"
         tools:text="placeholder_origin" />
+
+    <TextView
+        android:id="@+id/txt_species"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/species"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_character_origin" />
 
     <TextView
         android:id="@+id/txt_character_species"
@@ -48,8 +66,18 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_character_origin"
+        app:layout_constraintTop_toBottomOf="@+id/txt_species"
         tools:text="placeholder_species" />
+
+    <TextView
+        android:id="@+id/txt_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_character_species" />
 
     <TextView
         android:id="@+id/txt_character_status"
@@ -58,8 +86,19 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_character_species"
+        app:layout_constraintTop_toBottomOf="@+id/txt_status"
         tools:text="placeholder_status" />
+
+    <TextView
+        android:id="@+id/txt_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/type"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_character_status" />
+
 
     <TextView
         android:id="@+id/txt_character_type"
@@ -68,17 +107,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_character_status"
+        app:layout_constraintTop_toBottomOf="@+id/txt_type"
         tools:text="placeholder_type" />
-
-    <TextView
-        android:id="@+id/txt_character_url"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_character_type"
-        tools:text="placeholder_url" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
