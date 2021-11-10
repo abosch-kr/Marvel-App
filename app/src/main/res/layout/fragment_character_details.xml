@@ -7,7 +7,6 @@
     android:background="@color/white"
     android:clickable="true"
     android:focusable="true"
-    android:padding="30dp"
     tools:context=".fragment.CharacterDetailsFragment">
 
     <ImageView
