@@ -37,7 +37,7 @@ class HeroesRecViewAdapter(onHeroClickListener: OnHeroClickListener) : RecyclerV
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeroesViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.heroes_list_item, parent, false)
+            .inflate(R.layout.characters_list_item, parent, false)
 
         return HeroesViewHolder(view, mOnHeroClickListener)
     }

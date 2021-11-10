@@ -27,7 +27,7 @@ class CharactersAdapter(private val glide: RequestManager, OnCharacterClickListe
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.heroes_list_item, parent, false)
+            .inflate(R.layout.characters_list_item, parent, false)
 
         return CharactersViewHolder(view, mOnCharacterClickListener)
     }
