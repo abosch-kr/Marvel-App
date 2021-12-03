@@ -5,7 +5,7 @@ import com.example.marvelapp.model.GetCharactersResponse
 
 class Repository {
 
-    suspend fun getCharacters(): GetCharactersResponse {
-        return RetrofitInstance.api.getCharacters()
+    suspend fun getCharacters(data: MutableMap<String, String>): GetCharactersResponse {
+        return RetrofitInstance.api.getCharacters(data)
     }
 }
