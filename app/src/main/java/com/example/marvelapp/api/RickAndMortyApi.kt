@@ -1,13 +1,11 @@
 package com.example.marvelapp.api
 
-import com.example.marvelapp.model.GetCharactersResponse
 import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 
 interface RickAndMortyApi {
     @GET("character/")
     suspend fun getCharacters(
-        @QueryMap page: MutableMap<String, String>
+        @Query("page") page: Int
     ): GetCharactersResponse
 }
