@@ -1,5 +1,6 @@
 package com.example.marvelapp
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,12 +19,15 @@ class SharedViewModel(private val repository: Repository): ViewModel() {
 
     fun getCharacters() {
         viewModelScope.launch {
-            val response = repository.getCharacters(currentPage)
-            currentPage = currentPage.inc()
-            val newList = _apiResponse.value?.results?.toMutableList() ?: mutableListOf()
-            newList.addAll(response.results)
-            val charResponse = GetCharactersResponse(response.info, newList)
-            _apiResponse.value = charResponse
+            if (currentPage <= _apiResponse.value?.info?.pages ?: 1) {
+                Log.i("SharedViewModel", currentPage.toString())
+                val response = repository.getCharacters(currentPage)
+                currentPage = currentPage.inc()
+                val newList = _apiResponse.value?.results?.toMutableList() ?: mutableListOf()
+                newList.addAll(response.results)
+                val charResponse = GetCharactersResponse(response.info, newList)
+                _apiResponse.value = charResponse
+            }
         }
     }
 }
