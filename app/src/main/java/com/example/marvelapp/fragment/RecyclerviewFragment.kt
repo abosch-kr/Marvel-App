@@ -60,6 +60,15 @@ class RecyclerviewFragment : Fragment(), CharactersAdapter.OnCharacterClickListe
         charactersRecView.apply {
             adapter = charactersAdapter
             layoutManager = LinearLayoutManager(context)
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                    if (!recyclerView.canScrollVertically(1) && newState==RecyclerView.SCROLL_STATE_IDLE) {
+                        Log.d("-----","end")
+                        viewModel.getCharacters()
+                    }
+                }
+            })
         }
     }
 
